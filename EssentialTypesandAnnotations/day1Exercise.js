@@ -26,3 +26,13 @@ const handleFormData = (e) => {
     return value;
 };
 exports.handleFormData = handleFormData;
+//Exercise 6: Optional Property Types
+const concatName = (user) => {
+    if (!user.last) {
+        return user.first;
+    }
+    return `${user.first} ${user.last}`;
+};
+const result3 = concatName({
+    first: "John",
+});

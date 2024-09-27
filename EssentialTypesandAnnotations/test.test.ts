@@ -37,3 +37,50 @@ it("Should handle a form submit", () => {
       
         expect(result).toEqual("John Doe");
       });
+
+
+    type AllTypes=  null 
+                    | undefined
+                    | string
+                    | number
+                    | boolean
+                    | symbol
+                    | bigint
+  {
+    name: "hello";
+    age: 23;
+  }
+// Literal Types
+
+// type IsAdmin = true | false;
+// const isAdmin = (user: { name: string; isAdmin: IsAdmin }) => {
+//   return user.isAdmin;
+// }
+// it("should return the isAdmin value", () => {
+//     const result = isAdmin({
+//       name: "John",
+//       isAdmin: true,
+//     });
+  
+//     type test = Expect<Equal<typeof result, IsAdmin>>;
+  
+//     expect(result).toEqual(true);
+//   });
+
+
+ import{concatName2}from "./day2.practise"
+  it("should return the full name", () => {
+    const result2 = concatName2("John", "Doe");
+  
+    type test = Expect<Equal<typeof result2, string>>;
+  
+    expect(result2).toEqual("John Doe");
+  });
+
+  it("should return the first name", () => {
+    const result = concatName2("John");
+  
+    type test = Expect<Equal<typeof result, string>>;
+  
+    expect(result).toEqual("John Pocock");
+  });
