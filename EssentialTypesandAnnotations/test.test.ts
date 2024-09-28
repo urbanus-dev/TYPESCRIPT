@@ -3,6 +3,7 @@ import {Expect, Equal} from '@total-typescript/helpers'
 import { handleFormData } from "./day1Exercise";
 import { JSDOM } from 'jsdom';
 import { format } from "path";
+import {calculateArea1}from "./day3Exercise";
 const { document } = new JSDOM().window;
 it("Should handle a form submit", () => {
     const form = document.createElement("form");
@@ -52,20 +53,20 @@ it("Should handle a form submit", () => {
   }
 // Literal Types
 
-// type IsAdmin = true | false;
-// const isAdmin = (user: { name: string; isAdmin: IsAdmin }) => {
-//   return user.isAdmin;
-// }
-// it("should return the isAdmin value", () => {
-//     const result = isAdmin({
-//       name: "John",
-//       isAdmin: true,
-//     });
+type IsAdmin = true | false;
+const isAdmin = (user: { name: string; isAdmin: IsAdmin }) => {
+  return user.isAdmin;
+}
+it("should return the isAdmin value", () => {
+    const result = isAdmin({
+      name: "John",
+      isAdmin: true,
+    });
   
-//     type test = Expect<Equal<typeof result, IsAdmin>>;
+    type test = Expect<Equal<typeof result, IsAdmin>>;
   
-//     expect(result).toEqual(true);
-//   });
+    expect(result).toEqual(true);
+  });
 
 
  import{concatName2}from "./day2.practise"
@@ -83,4 +84,17 @@ it("Should handle a form submit", () => {
     type test = Expect<Equal<typeof result, string>>;
   
     expect(result).toEqual("John Pocock");
+  });
+
+
+  
+  
+  it('Should calculate the area of a circle when no kind is passed', () => {
+    const result = calculateArea1({
+      radius: 5
+    });
+  
+    expect(result).toBe(78.53981633974483);
+  
+    type test = Expect<Equal<typeof result, number>>;
   });

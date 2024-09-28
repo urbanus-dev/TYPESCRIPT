@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const vitest_1 = require("vitest");
 const day1Exercise_1 = require("./day1Exercise");
 const jsdom_1 = require("jsdom");
+const day3Exercise_1 = require("./day3Exercise");
 const { document } = new jsdom_1.JSDOM().window;
 (0, vitest_1.it)("Should handle a form submit", () => {
     const form = document.createElement("form");
@@ -32,19 +33,16 @@ const concatName = (user) => {
     name: "hello";
     age: 23;
 }
-// Literal Types
-// type IsAdmin = true | false;
-// const isAdmin = (user: { name: string; isAdmin: IsAdmin }) => {
-//   return user.isAdmin;
-// }
-// it("should return the isAdmin value", () => {
-//     const result = isAdmin({
-//       name: "John",
-//       isAdmin: true,
-//     });
-//     type test = Expect<Equal<typeof result, IsAdmin>>;
-//     expect(result).toEqual(true);
-//   });
+const isAdmin = (user) => {
+    return user.isAdmin;
+};
+(0, vitest_1.it)("should return the isAdmin value", () => {
+    const result = isAdmin({
+        name: "John",
+        isAdmin: true,
+    });
+    (0, vitest_1.expect)(result).toEqual(true);
+});
 const day2_practise_1 = require("./day2.practise");
 (0, vitest_1.it)("should return the full name", () => {
     const result2 = (0, day2_practise_1.concatName2)("John", "Doe");
@@ -53,4 +51,10 @@ const day2_practise_1 = require("./day2.practise");
 (0, vitest_1.it)("should return the first name", () => {
     const result = (0, day2_practise_1.concatName2)("John");
     (0, vitest_1.expect)(result).toEqual("John Pocock");
+});
+(0, vitest_1.it)('Should calculate the area of a circle when no kind is passed', () => {
+    const result = (0, day3Exercise_1.calculateArea1)({
+        radius: 5
+    });
+    (0, vitest_1.expect)(result).toBe(78.53981633974483);
 });
